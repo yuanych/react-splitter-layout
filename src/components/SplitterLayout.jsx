@@ -20,7 +20,7 @@ function clearSelection() {
   }
 }
 
-const DEFAULT_SPLITTER_SIZE = 4;
+//const DEFAULT_SPLITTER_SIZE = 4;
 
 class SplitterLayout extends React.Component {
   constructor(props) {
@@ -53,7 +53,7 @@ class SplitterLayout extends React.Component {
         splitterRect = this.splitter.getBoundingClientRect();
       } else {
         // Simulate a splitter
-        splitterRect = { width: DEFAULT_SPLITTER_SIZE, height: DEFAULT_SPLITTER_SIZE };
+        splitterRect = { width: this.props.splitterSize, height: this.props.splitterSize };
       }
       secondaryPaneSize = this.getSecondaryPaneSize(containerRect, splitterRect, {
         left: containerRect.left + ((containerRect.width - splitterRect.width) / 2),
@@ -225,6 +225,7 @@ SplitterLayout.propTypes = {
   customClassName: PropTypes.string,
   vertical: PropTypes.bool,
   percentage: PropTypes.bool,
+  splitterSize: PropTypes.number,
   primaryIndex: PropTypes.number,
   primaryMinSize: PropTypes.number,
   secondaryInitialSize: PropTypes.number,
@@ -239,6 +240,7 @@ SplitterLayout.defaultProps = {
   customClassName: '',
   vertical: false,
   percentage: false,
+  splitterSize: 4,
   primaryIndex: 0,
   primaryMinSize: 0,
   secondaryInitialSize: undefined,
